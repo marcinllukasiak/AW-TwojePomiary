@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-04-17 18:03:08 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Measurement" table="measurement" catalog="measurementdb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="person" class="hibernate.Person" fetch="select">
+            <column name="person" />
+        </many-to-one>
+        <property name="dateofMeasure" type="date">
+            <column name="dateofMeasure" length="10" not-null="true" />
+        </property>
+        <property name="bodyWeight" type="double">
+            <column name="bodyWeight" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="neckSize" type="double">
+            <column name="neckSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="chestSize" type="double">
+            <column name="chestSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="waistSize" type="double">
+            <column name="waistSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="hipsSize" type="double">
+            <column name="hipsSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="larmSize" type="double">
+            <column name="lArmSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="rarmSize" type="double">
+            <column name="rArmSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="lforearmSize" type="double">
+            <column name="lForearmSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="rforearmSize" type="double">
+            <column name="rForearmSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="lthighSize" type="double">
+            <column name="lThighSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="rthighSize" type="double">
+            <column name="rThighSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="lcalfSize" type="double">
+            <column name="lCalfSize" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="rcalfSize" type="double">
+            <column name="rCalfSize" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

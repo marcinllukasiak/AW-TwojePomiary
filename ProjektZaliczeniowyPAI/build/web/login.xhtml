@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./miaiinTemplate.xhtml">
+
+            <ui:define name="top">
+                Logowanie
+            </ui:define>
+
+            <ui:define name="content">
+                <f:view>
+                    okno komunikatu ze próbowales sie dostac do strony która dotępna jest tylko dla zalogowanych uzytkownikow
+                    <h:form>
+                        Nick:
+                        <h:panelGroup rendered="#{not authenticationBean.loggedIn}">
+                            <h:inputText value="#{authenticationBean.nick}" />
+                            
+                            Hasło:
+                            <h:inputText value="#{authenticationBean.password}" />
+                            
+                            <h:commandButton value="login"
+                                             action="#{authenticationBean.login}" />
+                        </h:panelGroup>
+                        
+                        
+                       
+                        <h:commandButton value="logout"
+                                         action="#{authenticationBean.logout}"
+                                         rendered="#{authenticationBean.loggedIn}" />
+
+
+                    </h:form>
+                </f:view>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

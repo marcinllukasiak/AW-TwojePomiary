@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../miaiinTemplate.xhtml">
+
+            <ui:define name="top">
+                Dodaj Pomiar
+            </ui:define>
+
+            <ui:define name="content">
+                
+                <h1>Formularz Rejestracyjny</h1>
+                
+                <h:form>
+                    <h:outputText id="komunikat"/>
+                    <table>
+                        <tr>
+                            <td>Data pomiaru (w formacie RRRR-MM-DD)</td>
+                            <td>
+                                
+                                <h:inputText value="#{mesurementBean.measure.dateofMeasure}" required="true">  
+                                     <f:convertDateTime pattern="yyyy-MM-dd"/>  
+                                </h:inputText>
+                                
+                            </td>
+                        </tr>  
+                        <tr>
+                            <td>Waga ciała</td>
+                            <td><h:inputText id="bodyWeight" value="#{mesurementBean.measure.bodyWeight}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Kark</td>
+                            <td><h:inputText id="neckSize" value="#{mesurementBean.measure.neckSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Klatka piersiowa</td>
+                            <td><h:inputText id="chestSize" value="#{mesurementBean.measure.chestSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Talia</td>
+                            <td><h:inputText id="waistSize" value="#{mesurementBean.measure.waistSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Biodro</td>
+                            <td><h:inputText id="hipsSize" value="#{mesurementBean.measure.hipsSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Ramię Lewe</td>
+                            <td><h:inputText id="larmSize" value="#{mesurementBean.measure.larmSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Ramię Prawe</td>
+                            <td><h:inputText id="rarmSize" value="#{mesurementBean.measure.rarmSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Przedramię Lewe </td>
+                            <td><h:inputText id="lforearmSize" value="#{mesurementBean.measure.lforearmSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Przedramię Prawe</td>
+                            <td><h:inputText id="rforearmSize" value="#{mesurementBean.measure.rforearmSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Udo Lewe</td>
+                            <td><h:inputText id="lthighSize" value="#{mesurementBean.measure.lthighSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Udo Prawe</td>
+                            <td><h:inputText id="rthighSize" value="#{mesurementBean.measure.rthighSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Łydka Lewe</td>
+                            <td><h:inputText id="lcalfSize" value="#{mesurementBean.measure.lcalfSize}" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Łydka Lewe</td>
+                            <td><h:inputText id="rcalfSize" value="#{mesurementBean.measure.rcalfSize}" required="true"/></td>
+                        </tr>
+                       
+                        
+                        <tr>
+                            <td></td>
+                            <td><h:commandButton action="#{mesurementBean.addMeasurement}" value="Dodaj Pomiar"/></td>
+                        </tr>
+                    </table>
+                </h:form>
+                
+                
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
