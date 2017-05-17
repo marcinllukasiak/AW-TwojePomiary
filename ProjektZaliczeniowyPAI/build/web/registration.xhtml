@@ -21,29 +21,33 @@
                     <table>
                         <tr>
                             <td>Nick</td>
-                            <td><h:inputText id="nick" value="#{personBean.person.nick}" required="true"/></td>
+                            <td><h:inputText id="nick" value="#{personBean.person.nick}" >
+                                <f:validator validatorId="validators.NickValidator"/>  
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Hasło</td>
-                            <td><h:inputText id="password" value="#{personBean.person.password}" required="true"/></td>
+                            <td><h:inputText id="password" value="#{personBean.person.password}" required="true" requiredMessage="Hasło jest obowiązkowe"/></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td><h:inputText id="email" value="#{personBean.person.email}" required="true"/></td>
+                            <td><h:inputText id="email" value="#{personBean.person.email}"  >  
+                                    <f:validator validatorId="validators.EmailValidator"/>  
+                                </h:inputText> </td>
                         </tr>
                         <tr>
                             <td>Imie</td>
-                            <td><h:inputText id="name" value="#{personBean.person.name}" required="true"/></td>
+                            <td><h:inputText id="name" value="#{personBean.person.name}" required="true" requiredMessage="Imie jest obowiązkowe"/></td>
                         </tr>
                         <tr>
                             <td>Nazwisko</td>
-                            <td><h:inputText id="surname" value="#{personBean.person.surname}" required="true"/></td>
+                            <td><h:inputText id="surname" value="#{personBean.person.surname}" required="true" requiredMessage="Nazwisko jest obowiązkowe"/></td>
                         </tr>
                         <tr>
                             <td>Data urodzenia (w formacie RRRR-MM-DD)</td>
                             <td>
                                 
-                                <h:inputText value="#{personBean.person.dateOfBirth}" required="true">  
+                                <h:inputText value="#{personBean.person.dateOfBirth}" required="true" requiredMessage="Data urodzenia  jest obowiązkowe" converterMessage="Data - zly format daty" >  
                                      <f:convertDateTime pattern="yyyy-MM-dd"/>  
                                 </h:inputText>
                                 

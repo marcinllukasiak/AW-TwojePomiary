@@ -15,78 +15,107 @@
 
             <ui:define name="content">
                 
-                <h1>Formularz Rejestracyjny</h1>
+                <h1>Dodaj Pomiar</h1>
                 
-                <h:form>
+                 <h:form>
                     <h:outputText id="komunikat"/>
                     <table>
                         <tr>
                             <td>Data pomiaru (w formacie RRRR-MM-DD)</td>
                             <td>
                                 
-                                <h:inputText value="#{mesurementBean.measure.dateofMeasure}" required="true">  
+                                <h:inputText value="#{mesurementBean.measure.dateofMeasure}" required="true" requiredMessage="Data - pole jest obowiązkowe"  converterMessage="Data - zly format daty" >  
                                      <f:convertDateTime pattern="yyyy-MM-dd"/>  
+                                     
                                 </h:inputText>
                                 
                             </td>
                         </tr>  
                         <tr>
                             <td>Waga ciała</td>
-                            <td><h:inputText id="bodyWeight" value="#{mesurementBean.measure.bodyWeight}" required="true"/></td>
+                            <td><h:inputText id="bodyWeight" value="#{mesurementBean.measure.bodyWeight}" required="true"  requiredMessage="Waga ciała - pole jest obowiązkowe"  converterMessage="Waga ciała - w pole nie wpisano liczby" validatorMessage="Waga ciała - pole wymaga min 2 znak">
+                                    <f:validateLength minimum="2" />  
+                                </h:inputText>
+                                
+                            </td>
                         </tr>
                         <tr>
                             <td>Kark</td>
-                            <td><h:inputText id="neckSize" value="#{mesurementBean.measure.neckSize}" required="true"/></td>
+                            <td><h:inputText id="neckSize" value="#{mesurementBean.measure.neckSize}" required="true"  requiredMessage="Kark - pole jest obowiązkowe" converterMessage="Kark - w pole nie wpisano liczby" validatorMessage="Kark - pole wymaga min 2 znak">
+                                    <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Klatka piersiowa</td>
-                            <td><h:inputText id="chestSize" value="#{mesurementBean.measure.chestSize}" required="true"/></td>
+                            <td><h:inputText id="chestSize" value="#{mesurementBean.measure.chestSize}" required="true"  requiredMessage="Klatka piersiowa - pole jest obowiązkowe" converterMessage="Klatka piersiowa - w pole nie wpisano liczby"  validatorMessage="Klatka piersiowa - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Talia</td>
-                            <td><h:inputText id="waistSize" value="#{mesurementBean.measure.waistSize}" required="true"/></td>
+                            <td><h:inputText id="waistSize" value="#{mesurementBean.measure.waistSize}" required="true"  requiredMessage="Talia - pole jest obowiązkowe" converterMessage="Talia - w pole nie wpisano liczby" validatorMessage="Talia - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Biodro</td>
-                            <td><h:inputText id="hipsSize" value="#{mesurementBean.measure.hipsSize}" required="true"/></td>
+                            <td><h:inputText id="hipsSize" value="#{mesurementBean.measure.hipsSize}" required="true"  requiredMessage="Biodro - pole jest obowiązkowe" converterMessage="Biodro - w pole nie wpisano liczby" validatorMessage="Biodro - pole wymaga min 2 znak">
+                               <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Ramię Lewe</td>
-                            <td><h:inputText id="larmSize" value="#{mesurementBean.measure.larmSize}" required="true"/></td>
+                            <td><h:inputText id="larmSize" value="#{mesurementBean.measure.larmSize}" required="true"  requiredMessage="Ramię Lewe - pole jest obowiązkowe" converterMessage="Ramię Lewe - w pole nie wpisano liczby" validatorMessage="Ramię Lewe - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />   
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Ramię Prawe</td>
-                            <td><h:inputText id="rarmSize" value="#{mesurementBean.measure.rarmSize}" required="true"/></td>
+                            <td><h:inputText id="rarmSize" value="#{mesurementBean.measure.rarmSize}" required="true"  requiredMessage="Ramię Prawe - pole jest obowiązkowe" converterMessage="Ramię Prawe - w pole nie wpisano liczby" validatorMessage="Ramię Prawe - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Przedramię Lewe </td>
-                            <td><h:inputText id="lforearmSize" value="#{mesurementBean.measure.lforearmSize}" required="true"/></td>
+                            <td><h:inputText id="lforearmSize" value="#{mesurementBean.measure.lforearmSize}" required="true"  requiredMessage="Przedramię Lewe - pole jest obowiązkowe" converterMessage="Przedramię Lewe - w pole nie wpisano liczby" validatorMessage="Przedramię Lewe - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />    
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Przedramię Prawe</td>
-                            <td><h:inputText id="rforearmSize" value="#{mesurementBean.measure.rforearmSize}" required="true"/></td>
+                            <td><h:inputText id="rforearmSize" value="#{mesurementBean.measure.rforearmSize}" required="true"  requiredMessage="Przedramię Prawe - pole jest obowiązkowe" converterMessage="Przedramię Prawe - w pole nie wpisano liczby" validatorMessage="Przedramię Prawe - pole wymaga min 2 znak">
+                               <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Udo Lewe</td>
-                            <td><h:inputText id="lthighSize" value="#{mesurementBean.measure.lthighSize}" required="true"/></td>
+                            <td><h:inputText id="lthighSize" value="#{mesurementBean.measure.lthighSize}" required="true"  requiredMessage="Udo Lewe - pole jest obowiązkowe" converterMessage="Udo Lewe - w pole nie wpisano liczby" validatorMessage="Udo Lewe - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />   
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Udo Prawe</td>
-                            <td><h:inputText id="rthighSize" value="#{mesurementBean.measure.rthighSize}" required="true"/></td>
+                            <td><h:inputText id="rthighSize" value="#{mesurementBean.measure.rthighSize}" required="true"  requiredMessage="Udo Prawe -  pole jest obowiązkowe" converterMessage="Udo Prawe - w pole nie wpisano liczby" validatorMessage="Udo Prawe - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                         <tr>
                             <td>Łydka Lewe</td>
-                            <td><h:inputText id="lcalfSize" value="#{mesurementBean.measure.lcalfSize}" required="true"/></td>
+                            <td><h:inputText id="lcalfSize" value="#{mesurementBean.measure.lcalfSize}" required="true"  requiredMessage="Łydka Lewe - pole jest obowiązkowe" converterMessage="Łydka Lewe - w pole nie wpisano liczby" validatorMessage="Łydka Lewe - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                         <tr>
-                            <td>Łydka Lewe</td>
-                            <td><h:inputText id="rcalfSize" value="#{mesurementBean.measure.rcalfSize}" required="true"/></td>
+                            <td>Łydka Prawa</td>
+                            <td><h:inputText id="rcalfSize" value="#{mesurementBean.measure.rcalfSize}" required="true"  requiredMessage="Łydka prawa - pole jest obowiązkowe" converterMessage="Łydka prawa - w pole nie wpisano liczby" validatorMessage="Łydka prawa - pole wymaga min 2 znak">
+                                <f:validateLength minimum="2" />  
+                                </h:inputText></td>
                         </tr>
                        
                         
                         <tr>
                             <td></td>
-                            <td><h:commandButton action="#{mesurementBean.addMeasurement}" value="Dodaj Pomiar"/></td>
+                            <td><h:commandButton action="#{mesurementBean.addMeasurement}" value="Edytuj Pomiar"/></td>
                         </tr>
                     </table>
                 </h:form>

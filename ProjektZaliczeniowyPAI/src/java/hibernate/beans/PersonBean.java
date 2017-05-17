@@ -10,7 +10,11 @@ import hibernate.query.PersonHelper;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.persistence.EntityManager;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -38,22 +42,25 @@ public class PersonBean implements Serializable {
         this.person = person;
     }
     
-    public String register(){
+    public String register() throws NoSuchAlgorithmException, UnsupportedEncodingException{
         
         
         //walidacja ?
         
+        
+        //hashowanie hasła
+        String pwd = person.getPassword();
+        String pwdMD5 = DatatypeConverter.printHexBinary( MessageDigest.getInstance("MD5").digest(pwd.getBytes("UTF-8")));
+        person.setPassword(pwdMD5);
+        
+        System.out.println("PASWORD WPROWADOZNY "+person.getPassword());
+        
+        //zapisywanie
         helper.saveOrUpdate(person);
         this.person = new Person();
-//        EntityManager em = DBManager.getManager().createEntityManager();
-//        em.getTransaction().begin();
-//        person.setId(null);
-//        em.persist(person);
-//        em.getTransaction().commit();
-//        em.close();
-//        this.person = new Person();
+
         
-        return null;
+        return "login";
     }
     
 }

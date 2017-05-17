@@ -16,6 +16,8 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 /**
  *
@@ -34,17 +36,44 @@ public class MeasurementBean implements Serializable {
      MeasurementHelper helper;
      PersonHelper phelper;
      private Measurement measure = new Measurement();
-    
+      private Measurement current;
+     DataModel measurementsList;
+     private String nick;
      
      
      
     public MeasurementBean() {
         helper = new MeasurementHelper();
         phelper = new PersonHelper(); // do przekazywania persony do pomiaru
+        nick = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("app.user.name");
+        
     }
 
-   
+   public DataModel getMeasurementsList() {
+//        if (measurementsList == null) {
+//            measurementsList = new ListDataModel(helper.getMeasurements(this.nick));
+//        }
+            measurementsList = new ListDataModel(helper.getMeasurements(this.nick));
+
+        return measurementsList;
+    }
+    public DataModel getMeasurementsListEdit() {
+
+
+        return measurementsList;
+    }
+
+    public Measurement getCurrent() {
+        return current;
+    }
+    public String returnml() {
+        return "listOfMeasurements";
+    }
     
+
+    public void setCurrent(Measurement current) {
+        this.current = current;
+    }
     
     
 
@@ -60,12 +89,12 @@ public class MeasurementBean implements Serializable {
     public String addMeasurement(){
         
         
-        //walidacja ?
+        
         
         //ustawienie użytkowniaka
 // pobieranie i ustawianie persony sesja
-        String nick = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("app.user.name");
-        measure.setPerson(phelper.getPerson(nick));
+        
+        measure.setPerson(phelper.getPerson(this.nick));
         
         helper.saveOrUpdate(measure);
         this.measure = new Measurement();
@@ -77,7 +106,47 @@ public class MeasurementBean implements Serializable {
 //        em.close();
 //        this.person = new Person();
         
-        return null;
+        return "listOfMeasurements";
     }
     
+    public String editMeasurement(){
+        
+        
+        //walidacja ?
+        
+        //ustawienie użytkowniaka
+// pobieranie i ustawianie persony sesja
+        
+        current.setPerson(phelper.getPerson(this.nick));
+        
+        helper.saveOrUpdate(current);
+        
+        
+        return "listOfMeasurements";
+    }
+    
+    public String deleteMeasurement(){
+        current = (Measurement) getMeasurementsListEdit().getRowData();
+        helper.deleteMeasure(current);
+        return "listOfMeasurements";
+    }
+    
+    
+     public String prepareView(){
+        current = (Measurement) getMeasurementsListEdit().getRowData();
+        return "viewMeasurement";
+    }
+    
+    public String prepareEdit(){
+        current = (Measurement) getMeasurementsListEdit().getRowData();
+        return "editMesurement";
+    }
+    
+    public Measurement getSelected() {
+    if (current == null) {
+        current = new Measurement();
+        
+    }
+    return current;
+    }
 }

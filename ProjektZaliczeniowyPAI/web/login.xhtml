@@ -15,24 +15,28 @@
 
             <ui:define name="content">
                 <f:view>
-                    okno komunikatu ze próbowales sie dostac do strony która dotępna jest tylko dla zalogowanych uzytkownikow
+
                     <h:form>
-                        Nick:
+                        
                         <h:panelGroup rendered="#{not authenticationBean.loggedIn}">
+                            Nick:
                             <h:inputText value="#{authenticationBean.nick}" />
                             
                             Hasło:
-                            <h:inputText value="#{authenticationBean.password}" />
+                            <h:inputSecret value="#{authenticationBean.password}" />
                             
-                            <h:commandButton value="login"
+                            <h:commandButton value="Zaloguj"
                                              action="#{authenticationBean.login}" />
+                            <h:messages ></h:messages>
                         </h:panelGroup>
                         
                         
                        
-                        <h:commandButton value="logout"
+                        <h:commandButton value="Wyloguj"
                                          action="#{authenticationBean.logout}"
                                          rendered="#{authenticationBean.loggedIn}" />
+                        
+                        
 
 
                     </h:form>

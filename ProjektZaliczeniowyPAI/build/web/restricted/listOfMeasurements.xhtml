@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../miaiinTemplate.xhtml">
+
+            <ui:define name="top">
+                Lista Pomiarów
+            </ui:define>
+
+            <ui:define name="content">
+
+                        <h1>Lista Pomiarów</h1>
+                <f:view>
+                    <h:form>
+                        <h:dataTable value="#{mesurementBean.measurementsList}" var="item">
+                            <h:column>
+                                <f:facet name="header"> <h:outputText value="dateofMeasure" /> </f:facet>
+                                <h:outputText value="#{item}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"> <h:outputText value="Action" /> </f:facet>
+                                
+                                <h:commandButton action="#{mesurementBean.prepareView}" value="Szczegóły"/>
+                                <h:commandButton action="#{mesurementBean.prepareEdit}" value="Edytuj"/>
+                                <h:commandButton action="#{mesurementBean.deleteMeasurement}" value="Usuń"/>
+
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </f:view>
+
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

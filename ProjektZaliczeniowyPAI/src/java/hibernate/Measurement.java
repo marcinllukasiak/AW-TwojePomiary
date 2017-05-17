@@ -2,6 +2,7 @@ package hibernate;
 // Generated 2017-04-17 18:03:07 by Hibernate Tools 4.3.1
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -182,7 +183,11 @@ public class Measurement  implements java.io.Serializable {
 
 
 
-
+public String toString() {
+    SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
+System.out.println(dt1.format(this.dateofMeasure));
+         return dt1.format(this.dateofMeasure);
+      }
 }
 
 

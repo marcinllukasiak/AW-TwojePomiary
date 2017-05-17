@@ -10,8 +10,12 @@ import hibernate.query.PersonHelper;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -54,11 +58,22 @@ public class AuthenticationBean implements Serializable {
                 .getSessionMap().get(AUTH_KEY) != null;
     }
 
-    public String login() {
+    public String login() throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        
+        //hashowanie hasła
+        String pwd = this.password;
+        String pwdMD5 = DatatypeConverter.printHexBinary( MessageDigest.getInstance("MD5").digest(pwd.getBytes("UTF-8")));
+        this.password = pwdMD5;
+        
         //sprawdzanie czy podane dane sa poprawne
         if(helper.isCorrectLogin(this.nick,this.password)){
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AUTH_KEY, this.nick);
+                //czyszczenie fieldow po zalogowaniu
+                this.nick="";
         }
+                this.password="";
+        
+        
         
 //komunikat ze udalo sie albo nieudalo zalogowac
         

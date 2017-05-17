@@ -32,7 +32,8 @@
             <h1 class="logo"><a href="index.xhtml">
  <!--TOP-->                   
                     <span id="title"> Twoje Pomiary </span>
-                    <span id="subtitle"><ui:insert name="top">top</ui:insert> </span>
+                    <span id="subtitle">
+                        <ui:insert name="top">top</ui:insert> </span>
                 </a>
             </h1>
             <div id="header_dec_2"></div>
@@ -45,8 +46,8 @@
                         <li><h:outputLink value="/ProjektZaliczeniowyPAI/faces/index.xhtml">Strona Główna</h:outputLink></li>
                         <li><h:outputLink value="/ProjektZaliczeniowyPAI/faces/registration.xhtml">Rejestracja Użytkownika</h:outputLink></li>
                         <li><h:outputLink value="/ProjektZaliczeniowyPAI/faces/login.xhtml">Logowanie</h:outputLink></li>
-                        <li><h:outputLink value="/ProjektZaliczeniowyPAI/faces/restricted/testowa.xhtml">Zabezpieczona-Test</h:outputLink></li>
                         <li><h:outputLink value="/ProjektZaliczeniowyPAI/faces/restricted/newMesurement.xhtml">Dodaj Pomiar</h:outputLink></li>
+                        <li><h:outputLink value="/ProjektZaliczeniowyPAI/faces/restricted/listOfMeasurements.xhtml">Lista Pomiarów</h:outputLink></li>
                     </ul>
                     <div id="sidebar_dec"></div>
                     <div class="clear"></div>
@@ -57,6 +58,7 @@
 
                     <!--KONTENT-->
                     <ui:insert name="content"><h1>cos</h1>Content</ui:insert> 
+                    
 
                     <div class="clear"></div>
 

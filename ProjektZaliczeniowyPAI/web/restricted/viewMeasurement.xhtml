@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../miaiinTemplate.xhtml">
+
+            <ui:define name="top">
+                Szczególy Pomiaru
+            </ui:define>
+
+            <ui:define name="content">
+                <h1>Szczególy Pomiaru</h1>
+                <f:view>
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Waga ciała" />
+                            <h:outputText value="#{mesurementBean.current.bodyWeight}" />
+                            <h:outputText value="Kark" />
+                            <h:outputText value="#{mesurementBean.current.neckSize}" />
+                            <h:outputText value="Klatka piersiowa" />
+                            <h:outputText value="#{mesurementBean.current.chestSize}" />
+                            <h:outputText value="Talia" />
+                            <h:outputText value="#{mesurementBean.current.waistSize}" />
+                            <h:outputText value="Biodro" />
+                            <h:outputText value="#{mesurementBean.current.hipsSize}" />
+                            <h:outputText value="Ramię Lewe" />
+                            <h:outputText value="#{mesurementBean.current.larmSize}" />
+                            <h:outputText value="Ramię Praw" />
+                            <h:outputText value="#{mesurementBean.current.rarmSize}" />
+                            <h:outputText value="Przedramię Lewe" />
+                            <h:outputText value="#{mesurementBean.current.lforearmSize}" />
+                            <h:outputText value="Przedramię Prawe" />
+                            <h:outputText value="#{mesurementBean.current.rforearmSize}" />
+                            <h:outputText value="Udo Lewe" />
+                            <h:outputText value="#{mesurementBean.current.lthighSize}" />
+                            <h:outputText value="Udo Prawe" />
+                            <h:outputText value="#{mesurementBean.current.rthighSize}" />
+                            <h:outputText value="Łydka Lewe" />
+                            <h:outputText value="#{mesurementBean.current.lcalfSize}" />
+                            <h:outputText value="Łydka Lewe" />
+                            <h:outputText value="#{mesurementBean.current.rcalfSize}" />
+                            
+                        </h:panelGrid>
+<!--                        <h:commandButton action="#{mesurementBean.returnml()}" value="Powrót"></h:commandLink>-->
+                        
+                        <h:commandButton action="#{mesurementBean.returnml}" value="Powrót"/>
+                    </h:form>
+                </f:view>
+
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
